@@ -601,33 +601,32 @@ def cleaning_sameweek_data_general(Participants,rule='first',save=True):
     else:  
         return Pars
     
-def clearning_redundant_missing_data(subdir_to_participants,save=True):
+# def clearning_redundant_missing_data(subdir_to_participants,save=True):
 
-    participants=load_pickle(DATA_interim+subdir_to_participants)
-    pars=copy.deepcopy(participants)
+#     participants=load_pickle(DATA_interim+subdir_to_participants)
+#     pars=copy.deepcopy(participants)
     
-    for par in pars:
+#     for par in pars:
         
-        idxs_missings=[]
+#         idxs_missings=[]
         
-        for i in range(len(par.data)):
+#         for i in range(len(par.data)):
     
-            idxs_missings.append(np.where(par.data[i]==-1)[0])
+#             idxs_missings.append(np.where(par.data[i]==-1)[0])
 
-            idxs_missings_intersect=reduce(np.intersect1d, tuple(idxs_missings))    
+#             idxs_missings_intersect=reduce(np.intersect1d, tuple(idxs_missings))    
 
-            if len(par.data[0])-1 in idxs_missings_intersect:
+#             if len(par.data[0])-1 in idxs_missings_intersect:
                 
-                some_set=np.where(idxs_missings_intersect[1:]-idxs_missings_intersect[:-1]!=1)[0]
-                if len(some_set)!=0:
-                    idxs_missing_start=idxs_missings_intersect[some_set[-1]+1]
-                else:
-                    idxs_missing_start=idxs_missings_intersect[0]
-                for i in range(len(par.data)):
-                    par.data[i]=par.data[i][:idxs_missing_start]
+#                 some_set=np.where(idxs_missings_intersect[1:]-idxs_missings_intersect[:-1]!=1)[0]
+#                 if len(some_set)!=0:
+#                     idxs_missing_start=idxs_missings_intersect[some_set[-1]+1]
+#                 else:
+#                     idxs_missing_start=idxs_missings_intersect[0]
+#                 for i in range(len(par.data)):
+#                     par.data[i]=par.data[i][:idxs_missing_start]
                 
-    if save:
-        save_pickle(pars,DATA_interim+subdir_to_participants.split('.')[0]+'_RM_cleaned.pkl')
-    else:  
-        return pars
-    
+#     if save:
+#         save_pickle(pars,DATA_interim+subdir_to_participants.split('.')[0]+'_RM_cleaned.pkl')
+#     else:  
+#         return pars
