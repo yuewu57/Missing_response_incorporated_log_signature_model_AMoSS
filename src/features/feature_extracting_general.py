@@ -41,9 +41,7 @@ if __name__ == '__main__':
     for data_cat in data_cats: 
         
             print("Current data category:",data_cat)
-
-                
-                    
+                  
             print("regression or not:",regression,"; time-augmented or not:",time,"; count or not:",count,"; normalise or not:",normalise)
                 
             subdir=data_cat+'/'+name_reg[int(regression)]+'/'+str(minlen)+subdir_name
@@ -60,9 +58,7 @@ if __name__ == '__main__':
                 sig_name='sig_'+str(order)
                                     
             np.save(data_subdir+sig_name+"_features"+names+".npy",Sig_features)
-                        
-                       
-                
+                                       
             print('Processing data-mean features without missing vaues')
             mean_features=mean_featuring(X)
             np.save(data_subdir+"mean_features"+name+".npy",mean_features)
