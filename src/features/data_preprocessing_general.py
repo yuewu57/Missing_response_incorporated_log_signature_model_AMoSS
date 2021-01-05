@@ -27,6 +27,6 @@ if __name__ == '__main__':
 
     cleaning_sameweek_data_general(participants_aligned,rule=rule3,save=True)
 
-    subdirs=["participants_class_aligned_general.pkl", "participants_class_weekly_general.pkl"]
-    for subdir in subdirs:
-        clearning_redundant_missing_data(subdir,save=True)
+#     subdirs=["participants_class_aligned_general.pkl", "participants_class_weekly_general.pkl"]
+#     for subdir in subdirs:
+#         clearning_redundant_missing_data(subdir,save=True)
