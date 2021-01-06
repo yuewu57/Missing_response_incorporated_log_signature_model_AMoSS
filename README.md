@@ -22,6 +22,17 @@ Patient Group
 |Healthy|1|
 |Bipolar|2|
 
+
+Structure
+---------------
+| File    | Task| Section in manuscript|
+|----------|------------|--------|
+|``src/features/data_preprocessing_general.py``| cleaning/Aligning raw data|Data|
+|``notebooks/hists_plotting.ipynb``| histograms for data |Data|
+|``src/features/feature_extracting_general.py ``| encoding missingness and output log-signature features|The workflow|
+|``src/models/weeklydata_MRLSM.ipynb``| results (include plots) for MRLSM |Results|
+
+
 References
 ---------------
   1. Tsanas A, Saunders KE, Bilderbeck AC, Palmius N, Osipov M, Clifford GD, Goodwin GΜ, De Vos M. Daily longitudinal self-monitoring of mood variability in bipolar disorder and borderline personality disorder. *Journal of affective disorders*. 2016 Nov 15;205:225-33. doi:10.1016/j.jad.2016.06.065
