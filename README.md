@@ -2,7 +2,9 @@
 
 This repository stores the resources to rework on ASRM/QIDS/EQ-5D/GAD-7 data collected from AMoSS study through the use of log-signature features. <sup>1<sup>
 
-Basically, the analysis is log-signature-based and integrated missing responses. <sup>2<sup>  We did not include comparision methods in this repository. 
+Basically, the analysis is log-signature-based and integrated missing responses. <sup>2<sup>  
+
+To focous on our proposed method, We did not include comparision methods in this repository. 
   
   
 Getting Started
