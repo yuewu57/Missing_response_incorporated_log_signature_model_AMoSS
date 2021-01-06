@@ -4,7 +4,7 @@ This repository stores the resources to rework on ASRM/QIDS/EQ-5D/GAD-7 data col
 
 Basically, the analysis is log-signature-based and integrated missing responses. <sup>2<sup>  
 
-To focous on our proposed method, We did not include comparision methods in this repository. 
+To focous on our proposed method, comparision methods were not included in this repository. But request can be made through email.
   
   
 Getting Started
