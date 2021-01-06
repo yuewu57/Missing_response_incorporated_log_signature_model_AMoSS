@@ -362,6 +362,66 @@ def rocci_plot(test_true,test_lens,prob_preds,names=['BPD','HC','BD'],\
     error_list=CI_std_output(fprs_list,tprs_list,mean_fpr_list=mean_fpr_list)
 
     aucplot_errorbars(test_true, prob_preds,error_list,names,save_name=args[0],mean_fpr_list=mean_fpr_list,lw=args[-1])
+        
+def plot_traj(idNumber,trun=None,fontsize=14,figsize=(10,3),\
+              Qs=['ASRM','QIDS','EQ-5D','GAD-7'],\
+              ylims=None,linestyle="steps-pre",lw=2,save=True):
+
+    for par in weekly_data:
+        if par.idNumber==idNumber:
+            for j in range(len(par.data)):
+                
+                
+                ##mask -1
+                ym=np.ma.masked_where(par.data[j] < 0, par.data[j])
+                y = par.data[j].copy()
+                y[ym <0] = np.nan
+                ####
+                
+                if trun is not None:
+                    y=y[:trun]
+                    
+                plt.figure(figsize=figsize)
+                
+                if linestyle is not None:
+                    plt.plot(np.arange(len(y)+1)[1:],y,label=Qs[j],linestyle=linestyle,lw=lw)
+                else:
+                    plt.plot(np.arange(len(y)+1)[1:],y,label=Qs[j],lw=lw)
+                    
+                plt.scatter(np.arange(len(y)+1)[1:],y)
+                plt.legend(fontsize=fontsize)
+                plt.xlabel('Week',fontsize=fontsize)
+                plt.ylabel('Score',fontsize=fontsize)
+                plt.xticks(fontsize=fontsize-2)
+                plt.yticks(fontsize=fontsize-2)
+                
+                if ylims is not None:                    
+                    plt.ylim(ylims[j])
+                    
+#                 plt.grid()
+                if save:
+                    plt.savefig(DATA_DIR+'plots/'+str(idNumber)+'_'+Qs[j]+'.jpeg',dpi=300,bbox_inches='tight')                    
+                else:
+
+                    plt.show()
+                    
+def plot_confusions(cm, target_names,figsize=(4,3), fontsize=14, savetitle=None):
+
+
+    fig, ax = plt.subplots(figsize=figsize) 
+#     ax.set_xlabel(xlabel)
+#     ax.set_ylabel(ylabel)
+    df_cm1 = pd.DataFrame(cm, target_names,
+                  target_names)
+    sns.set(font_scale=1.0)#for label size
+    sns.heatmap(df_cm1, cmap="Blues", cbar=False, annot=True,annot_kws={"size": fontsize},fmt='g',ax=ax)# font size
+
+    
+    
+    if savetitle==None:
+        plt.show()        
+    else:    
+        plt.savefig(savetitle+'.jpeg',dpi=300)   
     
  
     
